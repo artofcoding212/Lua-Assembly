@@ -1,0 +1,29 @@
+{
+  "name": "lua-assembly",
+  "displayName": "Lua Assembly",
+  "description": "Syntax highlighting for Lua Assembly.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "lua-assembly",
+      "aliases": ["Lua Assembly", "lua-assembly"],
+      "extensions": [".luaasm"],
+      "icon": {
+        "dark": "./Logo.png",
+        "light": "./Logo.png"
+      },
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "lua-assembly",
+      "scopeName": "main.luaasm",
+      "path": "./syntaxes/lua-assembly.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,94 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Lua Assembly",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#registerDefinitions"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#identifiers"
+		},
+		{
+			"include": "#registers"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.lua-assembly",
+				"match": "\\b(loop|mov|lsjmp|grjmp|eqjmp|push|pop|syscall|call|raw|ret|brk)\\b"
+			}]
+		},
+		"registerDefinitions": {
+			"match": "\\b(mkreg)\\b\\s*((([a-zA-Z_][a-zA-Z0-9_]*),\\s*)*(\\s*[a-zA-Z_][a-zA-Z0-9_]*))?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.lua-assembly"
+				},
+				"2": {
+					"name": "entity.name.type.lua-assembly"
+				}
+			}
+		},
+		"functions": {
+			"name": "keyword.control.lua-assembly",
+			"match": "\\b(func)\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)?",
+			"captures": {
+				"2": {
+					"name": "entity.name.function.lua-assembly"
+				}
+			}
+		},
+		"operators": {
+			"name": "keyword.operator.lua-assembly",
+			"match": "[\\+\\-\\*\\/,;]+"
+		},
+		"identifiers": {
+			"name": "variable.name.lua-assembly",
+			"match": "[a-zA-Z_][a-zA-Z0-9_]*"
+		},
+		"registers": {
+			"name": "entity.name.type.lua-assembly",
+			"match": "%[a-zA-Z_][a-zA-Z0-9_]*"
+		},
+		"numbers": {
+			"name": "constant.numeric.lua-assembly",
+			"match": "\\$[0-9]*"
+		},
+		"strings": {
+			"name": "string.quoted.double.lua-assembly",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.lua-assembly",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.line.lua-assembly",
+			"begin": "#",
+			"end": "\\n"
+		}
+	},
+	"scopeName": "main.luaasm"
+}

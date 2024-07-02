@@ -4,7 +4,6 @@
 
 <div align="center">
   <b>Lua-Assembly V1.0</b>
-  <p>A transpiled language that has an Assembly-like grammar.</p>
   <p>Created by artofcoding212 on Discord and Github.</p>
 </div>
 

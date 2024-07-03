@@ -60,6 +60,16 @@ An instruction is a statement that instructs the program to do one or more tasks
 | ret           | ret                                            | The Luau return keyword equivalent. |
 | brk           | brk                                            | The Luau break keyword equivalent. |
 
+## Syscalls
+The "syscall" instruction is like the "call" instruction; however, instead of picking a function defined locally, it picks a function defined globally by the transpiler. Below is a table
+showing each and every syscall currently available.
+| Syscall Name | Syscall Stack Parameters | Syscall Description
+| ------------- | ------------- | ------------- |
+| print  | Stack\[0\] - *argument*                | Prints the value at the top of the stack. |
+| warn   | Stack\[0\] - *argument*                | Warns the value at the top of the stack. |
+| error  | Stack\[0\] - *argument*                | Errors with the value at the top of the stack. |
+| random | Stack\[1\] - *min*, Stack\[0\] - *max* | Pushes a random number from the minmum and maximum ranges in the stack to the top of the stack.
+
 # Expressions
 Expressions terminated by a semicolon can act as a statement; however, they will error in the transpiled code. Expressions are meant to hold values, like numbers and math problems, that can
 be included in statements. As of now, Lua-Assembly supports 5 different expressions.

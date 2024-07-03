@@ -68,6 +68,9 @@ local function syscall(call: string)
         ["error"] = function()
             error(Stack[#Stack])
         end,
+        ["random"] = function()
+            table.insert(Stack, math.random(Stack[#Stack - 1], Stack[#Stack]))
+        end,
     }
     
     if calls[call] then

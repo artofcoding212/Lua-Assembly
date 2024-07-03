@@ -90,6 +90,16 @@ function lexer:NextToken(): Token
             value = value..self.current
             self:Advance()
         end
+
+        if self.current == "." then
+            value = value..self.current
+            self:Advance()
+            
+            while tonumber(self.current) ~= nil do
+                value = value..self.current
+                self:Advance()
+            end
+        end
         
         return {kind="number", value=value}::Token
     end

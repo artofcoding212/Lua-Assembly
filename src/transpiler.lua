@@ -71,6 +71,12 @@ local function syscall(call: string)
         ["random"] = function()
             table.insert(Stack, math.random(Stack[#Stack - 1], Stack[#Stack]))
         end,
+        ["strcat"] = function()
+            table.insert(Stack, Stack[#Stack - 1]..Stack[#Stack])
+        end,
+        ["task_wait"] = function()
+            task.wait(Stack[#Stack])
+        end,
     }
     
     if calls[call] then

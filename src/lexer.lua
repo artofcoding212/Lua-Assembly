@@ -90,7 +90,7 @@ function lexer:NextToken(): Token
             value = value..self.current
             self:Advance()
         end
-
+        
         if self.current == "." then
             value = value..self.current
             self:Advance()
@@ -153,6 +153,7 @@ function lexer:NextToken(): Token
         ["+"] = function() return tokenMatchHelper("plus") end,
         ["-"] = function() return tokenMatchHelper("minus") end,
         ["*"] = function() return tokenMatchHelper("star") end,
+        ["/"] = function() return tokenMatchHelper("slash") end,
         ["%"] = function() return tokenMatchHelper("percent") end,
         [","] = function() return tokenMatchHelper("comma") end,
         [";"] = function() return tokenMatchHelper("semicolon") end,
